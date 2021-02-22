@@ -1,0 +1,57 @@
+--- basic.c	Fri Feb 26 14:31:17 2016
++++ basic_pico.c	Mon Feb 22 11:47:04 2021
+@@ -4,2 +4,3 @@
+ 	(C)2015 Tetsuya Suzuki
++	modified by Pa@ART for Raspberry Pi Pico
+ */
+@@ -8,3 +9,5 @@
+ #include <stdio.h>
+-#include <termios.h>
++#include <stdlib.h>
++//#include <string.h>
++//#include <termios.h>
+ #include <unistd.h>
+@@ -12,2 +15,5 @@
+ #include <stdint.h>
++#include "pico/stdlib.h"
++#include "pico/binary_info.h"
++//#include "hardware/gpio.h"
+ 
+@@ -24,3 +30,3 @@
+ // TO-DO Rewrite these functions to fit your machine
+-#define STR_EDITION "LINUX"
++#define STR_EDITION "Raspberry Pi Pico"
+ 
+@@ -28,3 +34,5 @@
+ #define c_putch(c) putchar(c)
++#define	c_getch()	getchar()
+ 
++/*
+ char c_getch(){
+@@ -43,2 +51,4 @@
+ }
++*/
++
+ 
+@@ -64,3 +74,3 @@
+ 
+-#define KEY_ENTER 10
++#define KEY_ENTER 0x0a
+ void newline(void){
+@@ -72,2 +82,3 @@
+         return(rand() % value) + 1;
++		//return 0;
+ }
+@@ -1258,2 +1269,4 @@
+ 
++
++
+ /*
+@@ -1262,2 +1275,3 @@
+ */
++
+ void basic(){
+@@ -1269,2 +1283,3 @@
+ 	c_puts(" EDITION"); newline();
++
+ 	error(); // Print OK, and Clear error flag
